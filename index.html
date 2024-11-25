@@ -18,29 +18,28 @@
       <textarea id="note">
       </textarea>
       <div>
-        <button type="button" class="btn btn-sucess" onclick="saveNote($('#note'))">Save</button>
+        <button type="button" class="btn btn-primary" onclick="openNote(document.getElementById('note'))">Open</button>
+        <button type="button" class="btn btn-success" onclick="saveNote(document.getElementById('note'))">Save</button>
       </div>
     </div>
     <script>
       $(document).ready(function() {
-        $('#app-writepad').hide()
-        $('#open-application').hide()
-        $('#open-application').fadeIn(1000)
+        $('#app-writepad').hide();
+        $('#open-application').hide();
+        $('#open-application').fadeIn(1000);
       });
       function openWritePad() {
-        $('#app-writepad').show()
-        $('#open-application').hide()
+        $('#app-writepad').show();
+        $('#open-application').hide();
       }
       function saveNote(element) {
-        localStorage.setItem("note", element.value)
-        alert("Saved note!")
+        localStorage.setItem("note", element.value);
+        alert("Saved note!");
       }
       function openNote(element) {
-        if localStorage.getItem("note") {
-          element.value = localStorage.getItem("note")
-          alert("Opened note!")
-        } else {
-          alert("Opening note failed.")
+        if (localStorage.getItem("note")) {
+          element.value = localStorage.getItem("note");
+          alert("Opened note!");
         }
       }
     </script>
